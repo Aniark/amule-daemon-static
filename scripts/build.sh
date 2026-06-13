@@ -46,7 +46,7 @@ export pupnp_ver=1.14.18
 export cryptopp_ver=8_9_0
 export boost_ver=1.84.0
 export boost_ver2=1_84_0
-export amule_ver=2.3.3
+export amule_ver=git
 export libpng_ver=1.6.43
 export readline_ver=8.2
 export ncurses_ver=6.4
@@ -54,7 +54,7 @@ export curl_ver=8_7_1
 export mbedtls_ver=3.6.0
 export openssl_ver=3.3.0
 export libgd_ver=2.3.3
-export amule_build=2.3.3-2
+export amule_build=3.0.0-git
 
 # ----- Package URLs ----- #
 zlib_url=http://zlib.net/zlib-${zlib_ver}.tar.gz
@@ -62,7 +62,7 @@ wxwidgets_url=https://github.com/wxWidgets/wxWidgets/releases/download/v${wxwidg
 pupnp_url=https://github.com/pupnp/pupnp/releases/download/release-${pupnp_ver}/libupnp-${pupnp_ver}.tar.bz2
 boost_url=https://boostorg.jfrog.io/artifactory/main/release/${boost_ver}/source/boost_${boost_ver2}.tar.bz2
 libpng_url=https://download.sourceforge.net/libpng/libpng-${libpng_ver}.tar.xz
-amule_url=http://prdownloads.sourceforge.net/amule/aMule-${amule_ver}.tar.xz
+amule_url=https://github.com/amule-org/amule/archive/refs/heads/master.zip
 readline_url=https://ftp.gnu.org/gnu/readline/readline-${readline_ver}.tar.gz
 
 # ----- Package Checksums (sha512sum) ----- #
@@ -71,7 +71,6 @@ wxwidgets_sum=8592e8b7ddf4afe83c9dd4894faa43bbf8a5d57d1ac408b3b6b3b77a809063493e
 pupnp_sum=1cbff151e12c8cdfc369d63282afa8cedc3c9498676213e56371bf6dc3d40c5313149da895ba0177541cdb45d928de26248579cbf8d0006adfdcd445a65ef4bb
 boost_sum=5dfeb35198bb096e46cf9e131ef0334cb95bc0bf09f343f291b860b112598b3c36111bd8c232439c401a2b2fb832fa0c399a8d5b96afc60bd359dff070154497
 libpng_sum=c95d661fed548708ce7de5d80621a432272bdfe991f0d4db3695036e5fafb8a717b4e4314991bdd3227d7aa07f8c6afb6037c57fa0fe3349334a0b6c58268487
-amule_sum=a5a80c5ddd1e107d92070c1d8e232c2762c4c54791abc067c739eef7c690062ed164dd7733808f80c762719261162aeb3d602308964dda2670a0bb059d87b74e
 readline_sum=0a451d459146bfdeecc9cdd94bda6a6416d3e93abd80885a40b334312f16eb890f8618a27ca26868cebbddf1224983e631b1cbc002c1a4d1cd0d65fba9fea49a
 
 # ----- Development Directories ----- #
@@ -118,7 +117,7 @@ dpackage ${wxwidgets_url} ${wxwidgets_sum}
 dpackage ${pupnp_url} ${pupnp_sum}
 dpackage ${boost_url} ${boost_sum}
 dpackage ${libpng_url} ${libpng_sum}
-dpackage ${amule_url} ${amule_sum}
+dpackage ${amule_url}
 dpackage ${readline_url} ${readline_sum}
 [ -d amule-dlp ] || git clone --depth 1 https://github.com/persmule/amule-dlp.git
 [ -d amule-dlp.antiLeech ] || git clone --depth 1 https://github.com/persmule/amule-dlp.antiLeech.git
@@ -134,7 +133,7 @@ tar -xf "$(basename ${zlib_url})"
 tar -xf "$(basename ${wxwidgets_url})"
 tar -xf "$(basename ${pupnp_url})"
 tar -xf "$(basename ${boost_url})"
-tar -xf "$(basename ${amule_url})"
+unzip "$(basename ${amule_url})"
 tar -xf "$(basename ${libpng_url})"
 tar -xf "$(basename ${readline_url})"
 
