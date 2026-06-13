@@ -15,14 +15,14 @@ jobs:
         
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@main
 
       - name: Docker Environment
         run: docker build -f Dockerfile -t builder .
           
       - name: Cache Musl GCC
         id: cache-musl-gcc
-        uses: actions/cache@v3
+        uses: actions/cache@main
         with:
           path: toolchain
           key: ${{ runner.os }}-musl-gcc-${{ matrix.cpu_arch }}
@@ -50,7 +50,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
     - name: Download temp artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@main
       with:
         name: amule-linux-musl
 
@@ -59,6 +59,6 @@ jobs:
         sha256sum amule*.tar.xz
 
     - name: Batch release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@main
       with:
         files: amule*.tar.xz
