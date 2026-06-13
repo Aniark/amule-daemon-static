@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cpu_arch: [armv7, aarch64, mips, amd64]
+        cpu_arch: [amd64]
         
     steps:
       - name: Checkout repository
