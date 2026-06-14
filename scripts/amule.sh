@@ -5,7 +5,7 @@ set -e
 mkdir -p $BUILDDIR/amule/share/amule
 cp $SRCDIR/curl-ca-bundle.crt $BUILDDIR/amule/share/amule
 
-cd $SRCDIR/aMule-$amule_ver
+cd $SRCDIR/amule-master
 
 patch -p1 < $PCHDIR/amule-fix-curl_with_tls.patch
 patch -p0 < $PCHDIR/amule-fix-upnp_cross_compile.patch
